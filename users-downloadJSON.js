@@ -1,11 +1,9 @@
-var readAllData = require('./_readAllData'),
-    convertArrayToCSV = require('./_convertArrayToCSV'),
-    getReviews = require('./_geReviews'),
+var _readAllListings = require('./_readAllListings'),
     getUserInfo = require('./_getUserInfo'),
     fs = require('fs'),
     async = require('async')
 
-readAllData(function(listings)
+_readAllListings(function(listings)
 {
   async.eachSeries(listings, function(listing, nextItem) 
   {
