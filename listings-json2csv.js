@@ -3,6 +3,7 @@ var fs = require('fs'),
     jsonfile = require('jsonfile'),
     jsoncsv = require('json-csv'),
     dirName = 'data/',
+    outputName = 'output.csv',
     filesCount, filesRead = 0,
     listings = []
 
@@ -158,7 +159,7 @@ fs.readdir(dirName, function(err, fileNames)
 function convertArrayToCSV()
 {
   console.log('convertArrayToCSV ' + filesRead)
-  var output = fs.createWriteStream('output.csv', {encoding: 'utf8'})
+  var output = fs.createWriteStream(outputName, {encoding: 'utf8'})
   var readable = es.readArray(listings)
   readable.pipe(jsoncsv.csv(csvOptions)).pipe(output)
 }
