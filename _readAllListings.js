@@ -1,12 +1,12 @@
 var fs = require('fs'),
     jsonfile = require('jsonfile'),
-    dirName = 'data/',
+    dirName = 'data/listings/',
     filesCount, filesRead = 0,
     listings = []
 
 module.exports = function(callback)
 {
-  console.log('readAllData')
+  console.log('readAllListings')
   fs.readdir(dirName, function(err, fileNames) 
   {
     if (err) console.error(err)
