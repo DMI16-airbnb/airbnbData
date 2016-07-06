@@ -1,16 +1,22 @@
-var _readAllListings = require('./_readAllListings'),
+var readAllListings = require('./_readAllListings'),
     getUserInfo = require('./_getUserInfo'),
     fs = require('fs'),
-    async = require('async')
+    async = require('async'),
+    listingsRead = 0
 
-_readAllListings(function(listings)
+readAllListings(function(listings)
 {
   async.eachSeries(listings, function(listing, nextItem) 
   {
     var userId = listing.user_id
+    listingsRead ++ 
+
+    console.log(listingsRead, listing.id, userId)
+    
     getUserInfo(userId, function(res)
     {
       var user = JSON.stringify(res.user)
+      
       fs.writeFileSync('data/users/' + userId + '.json', user)
       nextItem()
     })
@@ -19,12 +25,12 @@ _readAllListings(function(listings)
   {
     if( err ) 
     {
-      console.error('A listing failed to process')
+      console.error(listing.id + ' failed to process')
       // no need to call nextItem() ?!
     } 
     else 
     {
-      console.log('All listings have been processed successfully')
+      console.log('All listings have been processed successfully', listingsRead)
     }
   })
 })
