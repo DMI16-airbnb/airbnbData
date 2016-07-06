@@ -14,20 +14,28 @@ var request = require('request'),
  */
 function getUserInfo(userId) 
 {
-	var params = configs.DEFAULT_REQUEST_PARAMS
-			params._format = 'v1_legacy_show'
+  var params = configs.DEFAULT_REQUEST_PARAMS
+      params._format = 'v1_legacy_show'
 
   var requestConfigs = _.assign({}, configs.DEFAULT_REQUEST_CONFIGS, 
   {
     url: configs.USER_URL + '/' + userId + '?' + serialize(params)
   })
 
-  return new Promise(function(resolve, reject) {
-    // Make request to parse hosting info
-    request(requestConfigs, function(err, res, body) {
-      if (!err && res.statusCode == 200) {
+  return new Promise(function(resolve, reject) 
+  {
+    request(requestConfigs, function(err, res, body) 
+    {
+      // console.log('getUserInfo')
+      // console.log('err', err)
+      // console.log('res', res)
+      // console.log('body', body)
+      if (!err && res.statusCode == 200) 
+      {
         resolve(JSON.parse(body))
-      } else if (err) {
+      } 
+      else if (err) 
+      {
         reject(err)
       }
     })
