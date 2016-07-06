@@ -16,21 +16,14 @@ readAllListings(function(listings)
     getUserInfo(userId, function(res)
     {
       var user = JSON.stringify(res.user)
-      
+
       fs.writeFileSync('data/users/' + userId + '.json', user)
       nextItem()
     })
   },
   function(err)
   {
-    if( err ) 
-    {
-      console.error(listing.id + ' failed to process')
-      // no need to call nextItem() ?!
-    } 
-    else 
-    {
-      console.log('All listings have been processed successfully', listingsRead)
-    }
+    if (err) console.error(listing.id + ' failed to process')
+    else console.log('All listings done', listingsRead)
   })
 })
