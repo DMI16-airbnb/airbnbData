@@ -116,5 +116,5 @@ var csvOptions =
 
 readAllData(function(listings)
 {
-  convertArrayToCSV(listings, 'listings.csv', csvOptions)
+  convertArrayToCSV(listings, 'data/listings.csv', csvOptions)
 })

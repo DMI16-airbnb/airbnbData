@@ -96,5 +96,5 @@ var csvOptions =
 
 readAllUsers(function(users)
 {
-  convertArrayToCSV(users, 'users.csv', csvOptions)
+  convertArrayToCSV(users, 'data/users.csv', csvOptions)
 })

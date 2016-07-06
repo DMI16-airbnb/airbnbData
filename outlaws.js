@@ -64,7 +64,7 @@ readAllListings(function(listings)
     else 
     {
       console.log('All listings done', listingsRead)
-      convertArrayToCSV(listingsReduced, 'outlaws.csv', csvOptions)
+      convertArrayToCSV(listingsReduced, 'data/outlaws.csv', csvOptions)
     } 
   })
 })
