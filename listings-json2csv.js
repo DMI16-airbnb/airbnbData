@@ -1,11 +1,5 @@
-var fs = require('fs'),
-    es = require('event-stream'),
-    jsonfile = require('jsonfile'),
-    jsoncsv = require('json-csv'),
-    dirName = 'data/',
-    outputName = 'output.csv',
-    filesCount, filesRead = 0,
-    listings = []
+var readAllData = require('./_readAllData'),
+    convertArrayToCSV = require('./_convertArrayToCSV')
 
 var csvOptions = 
 {
@@ -118,52 +112,9 @@ var csvOptions =
       }
     }*/
   ]
-}    
-
-fs.readdir(dirName, function(err, fileNames) 
-{
-  if (err) console.error(err)
-  else
-  {
-    filesCount = fileNames.length
-    console.log('filesCount ' + filesCount)
-
-    fileNames.forEach(function(fileName) 
-    {
-      // remove .DS_Store
-      if (fileName == '.DS_Store') 
-      {
-        filesRead ++
-        return
-      }  
-
-      jsonfile.readFile(dirName + fileName, function(err, content) 
-      {
-        if (err) 
-        {
-          console.error(err)
-          filesRead ++
-        }  
-        else
-        {
-          listings.push(content.listing)
-          filesRead ++
-          console.log(content.listing.id, content.listing.name, filesRead)
-          if (filesRead == filesCount) convertArrayToCSV()
-        }        
-      })
-    })
-  }
-})
-
-function convertArrayToCSV()
-{
-  console.log('convertArrayToCSV ' + filesRead)
-  var output = fs.createWriteStream(outputName, {encoding: 'utf8'})
-  var readable = es.readArray(listings)
-  readable.pipe(jsoncsv.csv(csvOptions)).pipe(output)
 }
 
-
-
-
+readAllData(function(listings)
+{
+  convertArrayToCSV(listings, 'listings.csv', csvOptions)
+})
