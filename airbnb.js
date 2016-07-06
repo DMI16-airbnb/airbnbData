@@ -19,15 +19,9 @@ var search = require('./api/search'),
     getEstIncome = require('./api/getEstIncome'),
     login = require('./api/login')
 
-var config = 
-{
-  username: 'codeyourapp@gmail.com',
-  password: '@1BkmJHP$Mqq'
-}
-
 module.exports = function(optionalConfigs) 
 {
-  optionalConfigs = optionalConfigs || config
+  optionalConfigs = optionalConfigs || {}
 
   var client = 
   {

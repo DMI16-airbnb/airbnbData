@@ -10,7 +10,6 @@ module.exports = function(userId, callback)
   {
     // console.log(res)
     callback(res)
-    // console.log('loggedin', client)
   })
   .catch(function(err)
   {
