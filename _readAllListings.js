@@ -35,7 +35,7 @@ module.exports = function(callback)
           {
             listings.push(content.listing)
             filesRead ++
-            console.log(content.listing.id, content.listing.name, filesRead)
+            // console.log(content.listing.id, content.listing.name, filesRead)
             if (filesRead == filesCount) callback(listings)
           }        
         })

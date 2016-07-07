@@ -3,7 +3,7 @@ var secrets = require('./_secrets'),
 
 var AIRBNB_PREFIX = 'https://api.airbnb.com/v2', // https://www.airbnb.com',
     SEARCH_URL = AIRBNB_PREFIX + '/search/search_results',
-    AVAILABILITY_URL = AIRBNB_PREFIX + '/api/v2/calendar_months',
+    AVAILABILITY_URL = AIRBNB_PREFIX + '/calendar_months',
     HOSTING_INFO_URL = AIRBNB_PREFIX + '/api/v1/listings',
     USER_URL = AIRBNB_PREFIX + '/users',
     USER_REVIEWS_URL = AIRBNB_PREFIX + '/users/review_page',

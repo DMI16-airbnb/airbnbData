@@ -29,7 +29,7 @@ module.exports = function(optionalConfigs)
     // search: search,
     // getInfo: getInfo,
     getUserInfo: getUserInfo,
-    // getCalendar: getCalendar,
+    getCalendar: getCalendar,
     // getReviews: getReviews,
     // getEstIncome: getEstIncome,
     // login: login
