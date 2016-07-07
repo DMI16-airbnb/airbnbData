@@ -15,12 +15,20 @@ var csvOptions =
       label : 'main picture'
     },
     {
+      name : 'picture_count',
+      label : 'picture count'
+    },
+    {
       name : 'user.user.picture_url',
       label : 'user picture'
     },
     {
-      name : 'picture_count',
-      label : 'picture count'
+      name : 'user.user.id',
+      label : 'user id'
+    },
+    {
+      name : 'user.user.first_name',
+      label : 'user name'
     }
   ]
 }
