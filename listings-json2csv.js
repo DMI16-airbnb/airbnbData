@@ -34,6 +34,10 @@ var csvOptions =
       label : 'beds'
     },
     {
+      name : 'bed_type',
+      label : 'bed type'
+    },
+    {
       name : 'person_capacity',
       label : 'person capacity'
     },
