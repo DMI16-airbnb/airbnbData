@@ -6,14 +6,14 @@ var fs = require('fs'),
 
 module.exports = function(callback)
 {
-  console.log('readAllUsers')
+  // console.log('_readAllUsers')
   fs.readdir(dirName, function(err, fileNames) 
   {
     if (err) console.error(err)
     else
     {
       filesCount = fileNames.length
-      console.log('filesCount ' + filesCount)
+      // console.log('filesCount ' + filesCount)
 
       fileNames.forEach(function(fileName) 
       {
@@ -35,7 +35,7 @@ module.exports = function(callback)
           {
             users.push(user)
             filesRead ++
-            console.log(user.id, user.first_name, filesRead)
+            // console.log(user.id, user.first_name, filesRead)
             if (filesRead == filesCount) callback(users)
           }        
         })
