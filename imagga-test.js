@@ -2,7 +2,7 @@ var request = require('request'),
     fs = require('fs'),
     apiKey = 'acc_b4714fa3a1cc37e',
     apiSecret = '19ad71900f3c596e8b9cae5369071ba0',
-    imageUrl = 'https://a0.muscache.com/im/users/10030473/profile_pic/1389340136/original.jpg?aki_policy=profile_large'
+    imageUrl = 'https://a0.muscache.com/im/pictures/31793105/90dcc361_original.jpg?aki_policy=x_large'
 
 request.get('https://api.imagga.com/v1/tagging?url='+encodeURIComponent(imageUrl), function (error, response, body) 
 {
